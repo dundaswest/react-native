@@ -8,12 +8,10 @@ export default class FetchExample extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      list:['banana','apple'],
       city:'San Diego',
       temp:{},
       description:'',
       icon: '',
-      isReady: false
     }
     this._handleSubmit = this._handleSubmit.bind(this);
     this._getInfo = this._getInfo.bind(this);
@@ -33,11 +31,6 @@ export default class FetchExample extends React.Component {
     })();
   }
    componentDidMount(){
-     /*
-    Font.loadAsync({
-      'Sans-regular': require('./assets/fonts/Sans-regular.ttf')
-    });
-    */
     let city = this.state.city
     return fetch(`http://api.openweathermap.org/data/2.5//weather?q=${city}&units=imperial&APPID=${apiKey}`)
     .then((response) => response.json())
